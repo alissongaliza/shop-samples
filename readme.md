@@ -1,2 +1,2 @@
-#Para rodar o projeto:
-##npm start
+# Para rodar o projeto:
+## npm start
