@@ -3,7 +3,7 @@ var path = require('path');
 //var cookieParser = require('cookie-parser');
 var bodyParser = require("body-parser"); //json helper
 
-var shop00Router = require('./routes/sisenex')
+var shop00Router = require('./routes/shop00')
 
 var app = express();
 
