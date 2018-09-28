@@ -9,8 +9,10 @@ var productsRouter = require('./product');
 router.use('/category', categoriesRouter);
 router.use('/product', productsRouter);
 
-router.get("/", (req, res) => {
-    console.log("test succeded");
-});
+router.get('/', function(req, res){
+    console.log('check');
+    
+    res.render('index');
+  });
 
 module.exports = router;
