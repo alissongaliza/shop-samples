@@ -5,7 +5,7 @@ var bodyParser = require("body-parser"); //json helper
 
 var shop00Router = require('./routes/shop00')
 
-var hb = require('express-handlebars')
+var handlebars = require('express-handlebars')
 
 var app = express();
 
@@ -17,9 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
 
-app.engine('hb', hb({defaultLayout: 'layout'}))
+app.engine('handlebars', handlebars({defaultLayout: 'layout'}))
 app.set('view engine', 'handlebars');
-
+app.use(express.static('views'));
 
 app.use('/shop00', shop00Router);
 
