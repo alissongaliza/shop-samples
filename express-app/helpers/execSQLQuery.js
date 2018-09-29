@@ -36,7 +36,7 @@ function execSQLQuery(query, data, res) {
     else {
       var formatedResults = funcaoDeTratamento(results);
 
-      res.json(formatedResults);
+    //   res.json(formatedResults);
     }
     connection.end();
     console.log("executou!");

@@ -20,10 +20,10 @@ function parcialExecSQLQuery(query, data, res, callback) {
     host: "localhost",
     port: "3306",
     user: "root",
-    password: 'lum0l4b1',
-    // password: "root",
+    // password: 'lum0l4b1',
+    password: "root",
     // password: 'cin>>',
-    database: "SisenexDev"
+    database: "Shop00"
   });
 
   connection.query(query, data, callback);

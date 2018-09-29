@@ -71,7 +71,7 @@ function load_products(all_products){
 
         var thumbnail = document.createElement('img');
         thumbnail.className = 'produto-thumb';
-        thumbnail.src = "imgs/"+all_products[i].produto_thumb;
+        thumbnail.src = "imgs/" + all_products[i].produto_thumb;
 
         var div_conteudo = document.createElement('div');
         div_conteudo.className = 'card-conteudo';

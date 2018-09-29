@@ -5,7 +5,7 @@ var bodyParser = require("body-parser"); //json helper
 
 var shop00Router = require('./routes/shop00')
 
-var hb = require('express-handlebars')
+var handlebars = require('express-handlebars')
 
 var app = express();
 
@@ -16,10 +16,29 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser());
+var hbs = handlebars.create({
+  // Specify helpers which are only registered on this instance. 
+  helpers: {
+      list: function(context, options) {
+        var ret = "<ul>";
+      
+        for(var i=0, j=context.length; i<j; i++) {
+          ret = ret + "<li>" + options.fn(context[i]) + "</li>";
+        }
+      
+        return ret + "</ul>";
+      }
+  }
+});
 
-app.engine('hb', hb({defaultLayout: 'layout'}))
+app.engine('handlebars', hbs.engine);
+// app.engine('handlebars', handlebars({defaultLayout: 'layout', extname: '.handlebars'}))
+
+
+
+  
 app.set('view engine', 'handlebars');
-
+app.use(express.static('views'));
 
 app.use('/shop00', shop00Router);
 
