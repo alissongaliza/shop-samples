@@ -25,7 +25,7 @@
             <ul id="categorias-recipiente"></ul>
         </nav>
         <section id="sessao-produtos" class="grid">
-            <ol id='lista-produtos' className='grid'>
+            <ul id='lista-produtos' class='grid'>
                 {{!-- {{#each categories}}
                 <li>
                     <p>{{this.nameCategory}}</p>
@@ -33,25 +33,35 @@
                 {{!-- <li><a href="categories/{{this.id}}">Deletar</a> --}}
                     {{!-- <a href="categories/{{this.id}}">Editar</a> --}}
                     {{!-- </li> --}}
-                <ul>
-                    {{#list products}}
-                    <li className='lista-item'>
-                        <div className='card-produto'>
-                            <div className='card-conteudo'>
-                                <h4 id='produto-nome'>{{nameProduct}}</h4>
-                                <label className='produto-preco'>{{priceProduct}}</label>
-                                <button className='produto-add-carrinho' >Add</button>
-                            </div>
-
+                {{#list categories}}
+                <li class='lista-item'>
+                    <div class='card-produto'>
+                        <div class='card-conteudo'>
+                            <h4 id='produto-nome'>{{nameProduct}}</h4>
+                            <label class='produto-preco'>{{priceProduct}}</label>
+                            <button class='produto-add-carrinho'>Add</button>
                         </div>
-                    </li>
-                    {{!-- <li> --}}
-                        {{!-- <a href="categories/{{../this.id}}/products/{{this.id}}">Deletar</a> --}}
-                        {{!-- <a href="categories/{{../this.id}}/products/{{this.id}}/edit">Editar</a> --}}
-                        {{!-- </li> --}}
-                    {{/list}}
-                </ul>
-            </ol>
+
+                    </div>
+                </li>
+
+                {{#list products}}
+                <li class='lista-item'>
+                    <div class='card-produto'>
+                        <div class='card-conteudo'>
+                            <h4 id='produto-nome'>{{nameProduct}}</h4>
+                            <label class='produto-preco'>{{priceProduct}}</label>
+                            <button class='produto-add-carrinho'>Add</button>
+                        </div>
+
+                    </div>
+                </li>
+                {{!-- <li> --}}
+                    {{!-- <a href="categories/{{../this.id}}/products/{{this.id}}">Deletar</a> --}}
+                    {{!-- <a href="categories/{{../this.id}}/products/{{this.id}}/edit">Editar</a> --}}
+                    {{!-- </li> --}}
+                {{/list}}
+            </ul>
         </section>
     </main>
     <footer class="footer">

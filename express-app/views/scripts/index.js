@@ -21,6 +21,7 @@ function calculaTotal() {
         total += carrinho[i].produto_price;
     return total;
 }
+
 function clickListener(elemnt) {
     var i = elemnt.id.replace(/\D/g,'')
     var li = document.createElement('li');
@@ -33,6 +34,7 @@ function clickListener(elemnt) {
 
     alert("Produto adicionado:\n"+carrinho[carrinho.length-1].produto_name);
 }
+
 function load_categories(all_categories){
     
     var ul = document.getElementById("categorias-recipiente");

@@ -20,14 +20,14 @@ var hbs = handlebars.create({
   // Specify helpers which are only registered on this instance. 
   helpers: {
       list: function(context, options) {
-        var ret = "<ul>";
+        var ret = "";
       
         for(var i=0, j=context.length; i<j; i++) {
-          ret = ret + "<li>" + options.fn(context[i]) + "</li>";
+          ret = ret + options.fn(context[i]);
         }
       
-        return ret + "</ul>";
-      }
+        return ret;
+    }
   }
 });
 
@@ -40,6 +40,6 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('views'));
 
-app.use('/shop00', shop00Router);
+app.use('', shop00Router);
 
 module.exports = app;

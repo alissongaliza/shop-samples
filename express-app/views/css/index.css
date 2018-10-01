@@ -35,6 +35,12 @@ body {
     width: 50%;
     max-width: 1600px;
 }
+.lista-item{
+    list-style:none;
+    float:left;
+    padding: 5px 10px;
+    /* border: 1px solid #eee; */
+}
 .card-produto{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -64,4 +70,7 @@ body {
 }
 .card-produto .card-conteudo .produto-add-carrinho{
     float: right;
+}
+.footer{
+    padding-left: 50%;
 }
