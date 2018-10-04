@@ -111,7 +111,7 @@ function main(){
 
     //a seguinte desgraca conta o numero diferente de categorias dos nossos produtos
     var all_categories = [...new Set(all_products.map(product =>product.category))]
-                .map(category => ({ name:category,count: all_products.filter(product =>product.category ===category).length }));    
+                .map(category => ({ name:category,count: all_products.filter(product =>product.category ===category).length }));
     
     load_categories(all_categories);
     load_products(all_products);

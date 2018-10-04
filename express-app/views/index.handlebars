@@ -22,7 +22,16 @@
     <main>
         <nav id="nav-principal" class="nav-principal"></nav>
         <nav class="categorias">
-            <ul id="categorias-recipiente"></ul>
+            <ul id="categorias-recipiente">
+                {{#list categories}}
+                <li className = "categoria">
+                    <p>
+                        {{nameCategory}}
+                    </p>
+
+                </li>
+                {{/list}}
+            </ul>
         </nav>
         <section id="sessao-produtos" class="grid">
             <ul id='lista-produtos' class='grid'>
@@ -33,7 +42,7 @@
                 {{!-- <li><a href="categories/{{this.id}}">Deletar</a> --}}
                     {{!-- <a href="categories/{{this.id}}">Editar</a> --}}
                     {{!-- </li> --}}
-                {{#list categories}}
+                {{!-- {{#list categories}}
                 <li class='lista-item'>
                     <div class='card-produto'>
                         <div class='card-conteudo'>
@@ -43,7 +52,7 @@
                         </div>
 
                     </div>
-                </li>
+                </li> --}}
 
                 {{#list products}}
                 <li class='lista-item'>
@@ -53,7 +62,6 @@
                             <label class='produto-preco'>{{priceProduct}}</label>
                             <button class='produto-add-carrinho'>Add</button>
                         </div>
-
                     </div>
                 </li>
                 {{!-- <li> --}}
