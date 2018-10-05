@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="/css/index.css" />
     {{!--
     <script src="../scripts/produto.js" type="text/javascript"></script> --}}
-    {{!--
-    <script src="../scripts/index.js" type="text/javascript"></script> --}}
+
+    <script src="../scripts/index.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
         <nav class="categorias">
             <ul id="categorias-recipiente">
                 {{#list categories}}
-                <li className = "categoria">
+                <li className="categoria">
                     <p>
                         {{nameCategory}}
                     </p>
@@ -70,6 +70,40 @@
                     {{!-- </li> --}}
                 {{/list}}
             </ul>
+        </section>
+        <section id='sessao-adm'>
+            {{!-- <a onclick="addProductClickListener()" href='#' id='add-product' class='button'> --}}
+                {{!-- <a href='product/create' id='add-product' class='button'>
+                    Adicionar produto
+                </a> --}}
+
+
+                <h2>Create a new category</h2>
+                <form action="/category/" , method="post" />
+                <label>Name:</label>
+                <input type="text" , name="nameCategory" required="required" />
+                <input type="submit" />
+                </form>
+                <h2>Create a new product</h2>
+                <form action="/product" , enctype="multipart/form-data" , method="post" />
+                <label>Name:</label>
+                <input type="text" , name="nameProduct" required="required" /><br>
+                <label>Price:$</label>
+                <input type="text" , name="priceProduct" required="required" /><br>
+                <label>Description:</label><br>
+                <textarea rows="4" , cols="50" , name="descriptionProduct" required="required"></textarea><br>
+                <label>Image:</label>
+                <input type="file" , name="thumbnail" required="required" />
+                {{!-- <input type="text" , name="idCategory" required="required" /><br>
+                <label>Categoria</label> --}}
+                
+                <select name="productCategory">
+                    {{#list categories}}
+                    <option value="{{nameCategory}}"> {{nameCategory}}</option>
+                    {{/list}}
+                </select>
+                <input type="submit" />
+                </form>
         </section>
     </main>
     <footer class="footer">

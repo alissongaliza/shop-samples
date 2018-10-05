@@ -1,3 +1,33 @@
+class Produto{
+    constructor(name, category, price, img, thumb){
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.img = img;
+        this.thumb = thumb;
+    }
+
+    get produto_name(){
+        return this.name;
+    }
+
+    get produto_price(){
+        return this.price;
+    }
+
+    get produto_img(){
+        return this.img;
+    }
+
+    get produto_category(){
+        return this.category;
+    }
+    
+    get produto_thumb(){
+        return this.thumb;
+    }
+}
+
 var all_products = [
 
     new Produto('Sueter Bomber De Seda Barroca', 'Sueter', 18050.00, 'JaquetaBomberDeSedaBarroca.jpg','JaquetaBomberDeSedaBarrocaThumbnail.jpg'),
@@ -35,85 +65,92 @@ function clickListener(elemnt) {
     alert("Produto adicionado:\n"+carrinho[carrinho.length-1].produto_name);
 }
 
-function load_categories(all_categories){
+function addProductClickListener(e){
     
-    var ul = document.getElementById("categorias-recipiente");
-
-    for (var i = 0; i < all_categories.length; i++)
-    {
-        var li = document.createElement("li");  
-        li.className = "categoria";
-
-        var a = document.createElement("a");
-        a.innerHTML = all_categories[i].name;
-        a.href = "#";
-
-        li.appendChild(a);
-        ul.appendChild(li);
-    }
+    
 }
 
-function load_products(all_products){
+// function load_categories(all_categories){
+    
+//     var ul = document.getElementById("categorias-recipiente");
 
-    var sessao_produtos = document.getElementById("sessao-produtos");
-    var lista_produtos = document.createElement('ol');
-    lista_produtos.id = 'lista-produtos';
-    lista_produtos.className = 'grid';
+//     for (var i = 0; i < all_categories.length; i++)
+//     {
+//         var li = document.createElement("li");  
+//         li.className = "categoria";
 
-    for (var i = 0; i < all_products.length; i++)
-    {
-        var li = document.createElement('li');
-        li.className = 'lista-item';
+//         var a = document.createElement("a");
+//         a.innerHTML = all_categories[i].name;
+//         a.href = "#";
 
-        var div_card = document.createElement('div');
-        div_card.className = 'card-produto';
+//         li.appendChild(a);
+//         ul.appendChild(li);
+//     }
+// }
 
-        var div_thumb = document.createElement('div');
-        div_thumb.className = 'card-thumb';
+// function load_products(all_products){
 
-        var thumbnail = document.createElement('img');
-        thumbnail.className = 'produto-thumb';
-        thumbnail.src = "imgs/" + all_products[i].produto_thumb;
+//     var sessao_produtos = document.getElementById("sessao-produtos");
+//     var lista_produtos = document.createElement('ol');
+//     lista_produtos.id = 'lista-produtos';
+//     lista_produtos.className = 'grid';
 
-        var div_conteudo = document.createElement('div');
-        div_conteudo.className = 'card-conteudo';
+//     for (var i = 0; i < all_products.length; i++)
+//     {
+//         var li = document.createElement('li');
+//         li.className = 'lista-item';
 
-        var name = document.createElement('h4');
-        name.id = 'produto-nome';
-        name.innerHTML = all_products[i].produto_name;
+//         var div_card = document.createElement('div');
+//         div_card.className = 'card-produto';
 
-        var price = document.createElement('label');
-        price.className = 'produto-preco';
-        price.innerHTML = 'R$ ' + all_products[i].produto_price;
+//         var div_thumb = document.createElement('div');
+//         div_thumb.className = 'card-thumb';
 
-        var add_carrinho = document.createElement('button');
-        add_carrinho.id = "bt" + i;
-        add_carrinho.className = 'produto-add-carrinho';
-        add_carrinho.innerHTML = 'Add';
-        add_carrinho.setAttribute('onclick', 'clickListener(this)');
+//         var thumbnail = document.createElement('img');
+//         thumbnail.className = 'produto-thumb';
+//         thumbnail.src = "imgs/" + all_products[i].produto_thumb;
 
-        div_thumb.appendChild(thumbnail);
-        div_conteudo.appendChild(name);
-        div_conteudo.appendChild(price);
-        div_conteudo.appendChild(add_carrinho);
-        div_card.appendChild(div_thumb);
-        div_card.appendChild(div_conteudo);
-        li.appendChild(div_card);
-        // div_produto_inline_price.appendChild(price);
-        // div_produto_inline_price.appendChild(add_to_cart);
-        // div_produto.appendChild(div_produto_inline_price);
-        lista_produtos.appendChild(div_card);
-    }
-    sessao_produtos.appendChild(lista_produtos);
-}
+//         var div_conteudo = document.createElement('div');
+//         div_conteudo.className = 'card-conteudo';
+
+//         var name = document.createElement('h4');
+//         name.id = 'produto-nome';
+//         name.innerHTML = all_products[i].produto_name;
+
+//         var price = document.createElement('label');
+//         price.className = 'produto-preco';
+//         price.innerHTML = 'R$ ' + all_products[i].produto_price;
+
+//         var add_carrinho = document.createElement('button');
+//         add_carrinho.id = "bt" + i;
+//         add_carrinho.className = 'produto-add-carrinho';
+//         add_carrinho.innerHTML = 'Add';
+//         add_carrinho.setAttribute('onclick', 'clickListener(this)');
+
+//         div_thumb.appendChild(thumbnail);
+//         div_conteudo.appendChild(name);
+//         div_conteudo.appendChild(price);
+//         div_conteudo.appendChild(add_carrinho);
+//         div_card.appendChild(div_thumb);
+//         div_card.appendChild(div_conteudo);
+//         li.appendChild(div_card);
+//         // div_produto_inline_price.appendChild(price);
+//         // div_produto_inline_price.appendChild(add_to_cart);
+//         // div_produto.appendChild(div_produto_inline_price);
+//         lista_produtos.appendChild(div_card);
+//     }
+//     sessao_produtos.appendChild(lista_produtos);
+// }
 
 function main(){
 
     //a seguinte desgraca conta o numero diferente de categorias dos nossos produtos
-    var all_categories = [...new Set(all_products.map(product =>product.category))]
-                .map(category => ({ name:category,count: all_products.filter(product =>product.category ===category).length }));
+    // var all_categories = [...new Set(all_products.map(product =>product.category))]
+    //             .map(category => ({ name:category,count: all_products.filter(product =>product.category ===category).length }));
     
-    load_categories(all_categories);
-    load_products(all_products);
+    // load_categories(all_categories);
+    // load_products(all_products);
+
+
     
 }

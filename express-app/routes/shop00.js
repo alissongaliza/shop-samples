@@ -22,16 +22,17 @@ router.get('/', function (req, res) {
                 products.push({idProduto: x.idProduct , nameProduct: x.nameProduct, priceProduct: x.priceProduct,
                 descriptionProduct: x.descriptionProduct});
             });
-            console.log(products);
+            // console.log(products);
             
-            var categories = _.chain(results)
+            var categories = 
+                _.chain(results)
                 .uniqBy('nameCategory')
-                .map( x=> {x.nameCategory})
+                // .map( x=> {x.nameCategory})
                 .value();
             // results.slice().map(x => {
             //     categories.push(`${x.categoryName}`);
             // });
-            console.log(categories);
+            // console.log(categories);
 
             res.render("index", { "products": products, "categories": categories });
         });

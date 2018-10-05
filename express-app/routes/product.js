@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
     var data = [req.body.nameProduct];
+    execSQLQuery('INSERT INTO Product (nameProduct, priceProduct, descriptionProduct,)')
 });
 
 router.get("/:id", (req, res) => {
@@ -23,6 +24,10 @@ router.get("/:id", (req, res) => {
 router.delete("/:id", (req, res) => {
     var data = [req.params.idProduct];
     execSQLQuery("DELETE FROM Product WHERE idProduct = ?", data, res);
+});
+
+router.get('/create', (req, res) =>{
+    res.render("new_product",{});
 });
 
 module.exports = router;
